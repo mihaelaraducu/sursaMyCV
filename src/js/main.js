@@ -1,7 +1,7 @@
 import $ from 'jquery';
 // create global $ and jQuery variables
 global.$ = global.jQuery = $;
-import GLightbox from 'glightbox';
+
 
 (function () {
     "use strict";
@@ -85,8 +85,10 @@ import GLightbox from 'glightbox';
         const headerScrolled = () => {
             if (window.scrollY > 100) {
                 selectHeader.classList.add('header-scrolled')
+                document.getElementById('img-fluid').src = 'images/logo3.png';
             } else {
                 selectHeader.classList.remove('header-scrolled')
+              /*  document.getElementById('img-fluid').src = 'images/logo4-color.png';*/
             }
         }
         window.addEventListener('load', headerScrolled)
@@ -160,63 +162,25 @@ import GLightbox from 'glightbox';
     /**
      * Intro type effect
      */
+
     setTimeout(function() {
-    // const typed = select('.typed)
-    const typed = select('.typed')
-    if (typed) {
-        let typed_strings = typed.getAttribute('data-typed-items')
-        typed_strings = typed_strings.split(',')
-        new Typed('.typed', {
-            strings: typed_strings,
-            loop: true,
-            typeSpeed: 100,
-            backSpeed: 50,
-            backDelay: 2000
-        });
-    }
-}, 2000);
+        // const typed = select('.typed)
+        const typed = select('.typed')
+        if (typed) {
+            let typed_strings = typed.getAttribute('data-typed-items')
+            typed_strings = typed_strings.split(',')
+            new Typed('.typed', {
+                strings: typed_strings,
+                loop: true,
+                typeSpeed: 100,
+                backSpeed: 50,
+                backDelay: 2000
+            });
+        }
+    }, 2000);
 
-    /**
-     * Initiate portfolio lightbox 
-     */
-    const portfolioLightbox = GLightbox({
-      selector: '.portfolio-lightbox'
-    });
 
-    /**
-     * Testimonials slider
-     */
-    // new Swiper('.testimonials-slider', {
-    //   speed: 600,
-    //   loop: true,
-    //   autoplay: {
-    //     delay: 5000,
-    //     disableOnInteraction: false
-    //   },
-    //   slidesPerView: 'auto',
-    //   pagination: {
-    //     el: '.swiper-pagination',
-    //     type: 'bullets',
-    //     clickable: true
-    //   }
-    // });
 
-    /**
-     * Portfolio details slider
-     */
-    // new Swiper('.portfolio-details-slider', {
-    //   speed: 400,
-    //   loop: true,
-    //   autoplay: {
-    //     delay: 5000,
-    //     disableOnInteraction: false
-    //   },
-    //   pagination: {
-    //     el: '.swiper-pagination',
-    //     type: 'bullets',
-    //     clickable: true
-    //   }
-    // });
 
     /**
      * Preloader
@@ -228,34 +192,70 @@ import GLightbox from 'glightbox';
         });
     }
 
-    /**
-     * Initiate Pure Counter 
-     */
-    // new PureCounter();
 
-    // Validare formular
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-    (() => {
-        "use strict";
 
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        const forms = document.querySelectorAll(".needs-validation");
+    // Validare
+    const forms = document.querySelectorAll('.requires-validation')
+    Array.from(forms)
+        .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
 
-        // Loop over them and prevent submission
-        Array.from(forms).forEach((form) => {
-          form.addEventListener(
-            "submit",
-            (event) => {
-              if (!form.checkValidity()) {
-                event.preventDefault();
-                event.stopPropagation();
-              }
-
-              form.classList.add("was-validated");
-            },
-            false
-          );
+                form.classList.add('was-validated')
+            }, false)
         });
-      })();
 
-})()
+
+
+    // Enable Dark Mode!
+    let toggleSwitch = document.getElementById('darkModeIcon');
+    let currentTheme = localStorage.getItem('theme');
+
+    if (currentTheme && currentTheme === 'dark') {
+        document.documentElement.setAttribute('data-bs-theme', 'dark');
+        toggleSwitch.classList.add('bi-moon');
+        toggleSwitch.classList.remove('bi-sun');
+
+    }
+    else {
+        document.documentElement.setAttribute('data-bs-theme', 'light');
+        toggleSwitch.classList.remove('bi-moon');
+        toggleSwitch.classList.add('bi-sun');
+        localStorage.setItem('theme', 'light');
+    }
+    function getParticlesColor2() {
+        const rootStyles = getComputedStyle(document.documentElement);
+        return rootStyles.getPropertyValue("--particle-color").trim();
+    }
+    function switchTheme(e) {
+        currentTheme = localStorage.getItem('theme');
+        this.classList.toggle('bi-moon');
+        this.classList.toggle('bi-sun');
+        if (currentTheme && currentTheme === 'dark') {
+            document.documentElement.setAttribute('data-bs-theme', 'light');
+            localStorage.setItem('theme', 'light');
+
+        }
+        else {
+            document.documentElement.setAttribute('data-bs-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        }
+        //schimb culoarea in particles.js
+        setTimeout(() => {
+            const newColor = getParticlesColor2();
+
+            // Dacă există o instanță anterioară, o distrugem
+            if (window.pJSDom && pJSDom.length > 0) {
+                pJSDom[0].pJS.particles.color.value = newColor;
+                pJSDom[0].pJS.fn.particlesRefresh();
+            }
+        }, 100); // Mic delay pentru a permite aplicarea noii culori din CSS
+    }
+    toggleSwitch.addEventListener('click', switchTheme, false);
+
+
+})();
+

@@ -8,7 +8,7 @@ function buildJSON() {
     // pas 1 selectez  elementele dupa atribut: data-tr
     const wordsTr = [];
     $("[data-tr]").each(function () {
-        const value = $(this).text()
+        const value = $(this).html()
         let key = $(this)[0].attribs['data-tr'];
         wordsTr.push({
             [key]: value

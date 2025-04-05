@@ -4,7 +4,9 @@
 	2. Define theme colour scheme
 |----------------------------------------------------------------------------
 */
-
+:root {
+  --particle-color: #00c4cc;
+}
 $font-family_1: fontAwesome;
 $font-family_2: fontAwesome;
 $border-color_1: rgba(255, 255, 255, 0.3);

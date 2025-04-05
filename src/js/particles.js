@@ -1,5 +1,9 @@
 /* ---- particles.js config ---- */
 
+function getParticlesColor() {
+    const rootStyles = getComputedStyle(document.documentElement);
+    return rootStyles.getPropertyValue("--particle-color").trim();
+}
 particlesJS("particles-js", {
     "particles": {
         "number": {
@@ -10,7 +14,7 @@ particlesJS("particles-js", {
             }
         },
         "color": {
-            "value": "#00c4cc"
+            "value": getParticlesColor()
         },
         "shape": {
             "type": "circle",

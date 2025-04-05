@@ -1,28 +1,25 @@
-import GLightbox from 'glightbox';
-
-// Variabilă globală pentru limba curentă
-let currentLangData = {};
-
-// Fetch language data
+// Function to fetch language data
 async function fetchLanguageData(lang) {
     const response = await fetch(`lang/${lang}.json`);
     return response.json();
 }
-
-// Set language and scroll
+// Function to set the language preference
 function setLanguagePreference(lang) {
     localStorage.setItem('language', lang);
+
+    // Salvează poziția de scroll
     const scrollY = window.scrollY;
     localStorage.setItem('scrollPosition', scrollY);
-}
 
-// Apply translations
+    //location.reload();
+}
+// Function to update content based on selected language
 function updateContent(langData) {
     if (Object.keys(langData).length > 0) {
         document.querySelectorAll('[data-tr]').forEach(element => {
             const key = element.getAttribute('data-tr');
             if (key && langData[key]) {
-                element.textContent = langData[key];
+                element.innerHTML = langData[key]; // ✅ permite HTML (ex: <br>, <a>)
             }
         });
 
@@ -37,28 +34,31 @@ function updateContent(langData) {
                 }
             }
         });
+    } else {
+        console.log("Obiectul este gol!");
     }
 }
 
-// Change language (globally accessible)
-window.changeLanguage = async function (lang) {
-    setLanguagePreference(lang);
-    currentLangData = await fetchLanguageData(lang);
-    updateContent(currentLangData);
-}
 
-// On page load
+// Function to change language
+// !!!Ca sa o putem folosi in fisierul HTML se declara cu window
+window.changeLanguage = function (lang) {
+    //console.log('limba aleasa', lang);
+    setLanguagePreference(lang);
+
+    const langData = fetchLanguageData(lang);
+    updateContent(langData);
+
+
+}
+// Call updateContent() on page load
 window.addEventListener('DOMContentLoaded', async () => {
     const userPreferredLanguage = localStorage.getItem('language') || 'en';
+    //console.log('limba aleasa2', userPreferredLanguage);
     document.documentElement.setAttribute('lang', userPreferredLanguage);
-
-    const langButton = document.querySelector(`[data-id="${userPreferredLanguage}"]`);
-    if (langButton) {
-        langButton.classList.add('active');
-    }
-
-    currentLangData = await fetchLanguageData(userPreferredLanguage);
-    updateContent(currentLangData);
+    document.querySelector('[data-id= "' + userPreferredLanguage + '"]').classList.add('active');
+    const langData = await fetchLanguageData(userPreferredLanguage);
+    updateContent(langData);
 
     setTimeout(() => {
         const savedPosition = localStorage.getItem("scrollPosition");
@@ -68,8 +68,6 @@ window.addEventListener('DOMContentLoaded', async () => {
                 behavior: "smooth"
             });
         }
-    }, 100);
+    }, 100); // Așteaptă 100ms înainte de repoziționare
 
-    // GLightbox initialization
-    GLightbox();
 });
