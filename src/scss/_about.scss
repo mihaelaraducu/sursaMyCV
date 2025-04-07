@@ -24,45 +24,68 @@
     }
   }
   .skill-mf {
-    span {
-      color: $color_1;
-    }
-    .progress {
-      background-color: $background-color_4;
-      margin: 0.5rem 0 1.2rem 0;
-      border-radius: 0;
+    .progress-bar {
       height: 0.7rem;
-      .progress-bar {
-        height: 0.7rem;
-        background: $background-color_2;
-        animation-duration: 2s;
-        animation-timing-function: ease-out;
-        animation-fill-mode: both;
-      }
-      #progress-html{
-        animation-name: progress-html;
-        animation-delay: $animation-delay;
-      }
-
-      #progress-css{
-        animation-name: progress-css;
-        animation-delay: $animation-delay*2;
-      }
-
-      #progress-javascript{
-        animation-name: progress-javascript;
-        animation-delay: $animation-delay*4;
-      }
-
-      #progress-nodejs{
-        animation-name: progress-nodejs;
-        animation-delay: $animation-delay*3;
-      }
-
-    }// end bar-container
-    
+      background: $background-color_2;
+      animation-duration: 2s;
+      animation-timing-function: ease-out;
+      animation-fill-mode: both;
+      animation-play-state: paused; // Pause animation by default
+    }
+  
+    #progress-html {
+      animation-name: progress-html;
+      animation-delay: $animation-delay;
+    }
+  
+    #progress-css {
+      animation-name: progress-css;
+      animation-delay: $animation-delay * 2;
+    }
+  
+    #progress-javascript {
+      animation-name: progress-javascript;
+      animation-delay: $animation-delay * 4;
+    }
+  
+    #progress-nodejs {
+      animation-name: progress-nodejs;
+      animation-delay: $animation-delay * 3;
+    }
   }
-@keyframes progress-html{0%{width: 0%;} 100%{ width: 85%;}}
-@keyframes progress-css{0%{width: 0%;} 100%{ width: 75%;}}
-@keyframes progress-javascript{0%{width: 0%;} 100%{ width: 90%;}}
-@keyframes progress-nodejs{0%{width: 0%;} 100%{ width: 50%;}}
+  
+  @keyframes progress-html {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 85%;
+    }
+  }
+  
+  @keyframes progress-css {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 75%;
+    }
+  }
+  
+  @keyframes progress-javascript {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 90%;
+    }
+  }
+  
+  @keyframes progress-nodejs {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 50%;
+    }
+  }

@@ -1,24 +1,65 @@
 
 import $ from 'jquery';
-// create global $ and jQuery variables
 global.$ = global.jQuery = $;
 
-var offsetTop = $('#skills').offset().top;
-$(window).on("scroll", function () {
-    var height = $(window).height();
-    var multiply = 4;
-    if ($(window).scrollTop() + height > offsetTop) {
-        $('.bar-container').each(function () {
-            $(this).find('.progressbar').animate({
-                width: $(this).attr('data-percent'),
+let animated = false;
 
-            }, 2000);
-            var $this = $(this);  // here $this keeps the reference of $(this) in setTimeout
-            setTimeout(function () {
-                $this.parent('li').children(".progressbar-title").children('.percent').html($this.attr('data-percent'));
-            }, 500 * multiply);
-            multiply++;
+function isElementInViewport(el, offset = 100) {
+  const elementTop = el.getBoundingClientRect().top;
+  const elementBottom = el.getBoundingClientRect().bottom;
+  const windowHeight = window.innerHeight || document.documentElement.clientHeight;
 
-        });
-    }
+  return elementTop <= windowHeight - offset && elementBottom >= 0;
+}
+
+function resetSkills() {
+  // Reset progress bar animations by pausing them
+  $('.progress-bar').css('animation-play-state', 'paused');
+  $('.pull-right').text('0%'); // Reset the percentage to 0%
+}
+
+function animateSkills() {
+  // Trigger progress bar animations by resuming them
+  $('.progress-bar').css('animation-play-state', 'running');
+
+  // Animate percentages
+  $('.pull-right').each(function () {
+    const target = parseInt($(this).text()); // Get the target percentage from the text
+    const $this = $(this);
+    $this.text('0%'); // Reset the percentage to 0%
+    $({ countNum: 0 }).animate(
+      { countNum: target },
+      {
+        duration: 2000,
+        easing: 'swing',
+        step: function () {
+          $this.text(Math.floor(this.countNum) + '%'); // Update the percentage during animation
+        },
+        complete: function () {
+          $this.text(this.countNum + '%'); // Ensure the final percentage is correct
+        }
+      }
+    );
+  });
+}
+
+// Trigger animation on scroll
+$(window).on('scroll', function () {
+  const skillsSection = document.getElementById('skills');
+  if (!animated && isElementInViewport(skillsSection, 150)) {
+    resetSkills(); // Reset progress bars before animating
+    animateSkills();
+    animated = true;
+  }
+});
+
+// Trigger animation on "More about me" button click
+$('#more-about-me-btn').on('click', function () {
+  const skillsSection = document.getElementById('skills');
+  skillsSection.scrollIntoView({ behavior: 'smooth' });
+  if (!animated) {
+    resetSkills(); // Reset progress bars before animating
+    animateSkills();
+    animated = true;
+  }
 });

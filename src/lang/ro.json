@@ -102,7 +102,14 @@
   "ct.title": "Dorești să colaborăm?",
   "ct.inf": "Fie că ai nevoie de ajutor pentru un proiect frontend, construiești o echipă de dezvoltare web sau vrei să implementezi soluții tehnologice moderne, sunt deschisă către colaborări!<br>Completează formularul sau trimite-mi un email.<br>Aștept cu drag să discutăm despre proiecte cu impact.",
   "ct.send": "Trimite Mesaj",
+  "ct.valid1.name": "Câmpul Nume este valid!",
+  "ct.invalid1.name": "Câmpul Nume trebuie completat corect!",
+  "ct.valid2.email": "Câmpul Email este valid!",
+  "ct.invalid2.email": "Câmpul Email trebuie completat corect!",
+  "ct.valid3.subject": "Câmpul Subiect este valid!",
+  "ct.invalid3.subject": "Câmpul Subiect trebuie completat corect!",
+  "ct.valid4.message": "Câmpul Mesaj este valid!",
+  "ct.invalid4.message": "Câmpul Mesaj trebuie completat corect!",
   "ft.copy": "<span>&copy;</span> Drepturi de autor <strong>Mihaela Raducu</strong>. Toate drepturile rezervate",
   "ft.credits": "Proiect realizat de <a href=\"#\">Mihaela Raducu</a>"
-
 }

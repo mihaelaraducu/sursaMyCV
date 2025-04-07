@@ -103,6 +103,14 @@
     "ct.title": "Would you like to collaborate?",
     "ct.inf": "Whether you need help with a frontend project, are building a web development team, or want to implement modern tech solutions,<br>I am open to collaboration opportunities!<br>Feel free to fill out the form or send me an email.<br>I look forward to discussing potential collaborations and contributing together to impactful projects.",
     "ct.send": "Send Message",
+    "ct.valid1.name": "The name field is valid!",
+    "ct.invalid1.name": "Please complete the name field correctly!",
+    "ct.valid2.email": "The email field is valid!",
+    "ct.invalid2.email": "Please complete the email field correctly!",
+    "ct.valid3.subject": "The subject field is valid!",
+    "ct.invalid3.subject": "Please complete the subject field correctly!",
+    "ct.valid4.message": "The message field is valid!",
+    "ct.invalid4.message": "Please complete the message field correctly!",
     "ft.copy": "<span>&copy;</span> Copyright <strong>Mihaela Raducu</strong>. All Rights Reserved",
     "ft.credits": "Designed by <a href=\"#\">Mihaela Raducu</a>"
 }
