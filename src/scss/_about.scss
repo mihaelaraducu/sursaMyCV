@@ -26,7 +26,7 @@
   .skill-mf {
     .progress-bar {
       height: 0.7rem;
-      background: $background-color_2;
+      background: var(--background-first);
       animation-duration: 2s;
       animation-timing-function: ease-out;
       animation-fill-mode: both;
@@ -35,22 +35,22 @@
   
     #progress-html {
       animation-name: progress-html;
-      animation-delay: $animation-delay;
+      //animation-delay: $animation-delay;
     }
   
     #progress-css {
       animation-name: progress-css;
-      animation-delay: $animation-delay * 2;
+      //animation-delay: $animation-delay * 2;
     }
   
     #progress-javascript {
       animation-name: progress-javascript;
-      animation-delay: $animation-delay * 4;
+      //animation-delay: $animation-delay * 4;
     }
   
     #progress-nodejs {
       animation-name: progress-nodejs;
-      animation-delay: $animation-delay * 3;
+      //animation-delay: $animation-delay * 3;
     }
   }
   

@@ -19,7 +19,7 @@
   .php-email-form {
     .error-message {
       display: none;
-      color: $color_1;
+      color: var(--color_1);;
       background: #ed3c0d;
       text-align: center;
       padding: 15px;
@@ -27,7 +27,7 @@
     }
     .sent-message {
       display: none;
-      color: $color_1;
+      color: var(--color_1);;
       background: #18d26e;
       text-align: center;
       padding: 15px;
@@ -46,7 +46,7 @@
         height: 24px;
         margin: 0 10px -6px 0;
         border: 3px solid #18d26e;
-        border-top-color: $border-top-color_1;
+        border-top-color: var(--border-top-color_1);
         animation: animate-loading 1s linear infinite;
       }
     }
@@ -56,7 +56,7 @@
       font-size: 14px;
       padding: 10px 15px;
       &:focus {
-        border-color: $border-color_1;
+        border-color: var(--border-color_1);
       }
     }
     textarea {
@@ -66,17 +66,17 @@
       padding: 12px 15px;
       margin-bottom: 0;
       &:focus {
-        border-color: $border-color_1;
+        border-color: var(--border-color_1);
       }
     }
     button[type="submit"] {
-      background: #38858d;
+      background: var(--button-bg);
       border: 0;
       padding: 10px 24px;
-      color: $color_1;
+      color: var(--color_1);;
       transition: 0.4s;
       &:hover {
-        background: #38858dcb;
+        background: var(--button-hover);
       }
     }
   }

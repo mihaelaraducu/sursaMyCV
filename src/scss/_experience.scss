@@ -7,7 +7,7 @@
     .resume-header {
       text-align: center;
       h2 {
-        color: $vueColor;
+        color: var(--vueColor);
       }
     }
     .timeline-wrap {
@@ -34,9 +34,10 @@
       width: 4.8rem;
       line-height: 4.8rem;
       background: var(--background-color_3);
+      //background: #ebeeee; 
       border-radius: 50%;
       text-align: center;
-      color: var(--color_4);
+      //color: var(--color_1);
       position: absolute;
       left: 35%;
       top: 0.9rem;
@@ -57,7 +58,7 @@
         margin-bottom: 0;
       }
       p {
-        font-family: $font-family_1;
+        font-family: var(--font-family_1);
         font-size: 1.2rem;
         color: var(--color_1);
       }
@@ -73,7 +74,7 @@
           display: block;
           height: 3px;
           width: 50px;
-          background: $vueColor;
+          background: var(--vueColor);
           position: absolute;
           left: 0;
           bottom: 0;
@@ -95,7 +96,7 @@
     margin-bottom: 3.6rem;
     position: relative;
     h1 {
-      font-family: $font-family_2;
+      font-family: var(--font-family_2);
       font-size: 3.6rem;
       color: var(--color_5);
       line-height: 1.25;

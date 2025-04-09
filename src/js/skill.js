@@ -24,7 +24,7 @@ function animateSkills() {
 
   // Animate percentages
   $('.pull-right').each(function () {
-    const target = parseInt($(this).text()); // Get the target percentage from the text
+    const target = parseInt($(this).data('percent')); // Aceasta linie preia procentajul din atributul data-percent
     const $this = $(this);
     $this.text('0%'); // Reset the percentage to 0%
     $({ countNum: 0 }).animate(

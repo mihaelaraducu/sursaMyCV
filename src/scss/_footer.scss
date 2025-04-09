@@ -4,7 +4,7 @@
 --------------------------------------------------------------*/
 footer {
   text-align: center;
-  color: $color_5;
+  color: var(--color_5);
   padding: 25px 0;
   background: #000000eb;
   .copyright {
@@ -13,7 +13,7 @@ footer {
   .credits {
     margin-bottom: 0;
     a {
-      color: $color_5;
+      color: var(--color_5);
     }
   }
 }
