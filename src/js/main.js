@@ -185,12 +185,12 @@ global.$ = global.jQuery = $;
     /**
      * Preloader
      */
-    let preloader = select('#preloader');
+    /*let preloader = select('#preloader');
     if (preloader) {
-        window.addEventListener('DOMContentLoaded', () => {  // aici modific cu DOMContentLoaded sau comentez toata functia
+        window.addEventListener('load', () => {  // aici modific cu DOMContentLoaded sau comentez toata functia
             preloader.remove()
         });
-    }
+    }*/
 
 
 
