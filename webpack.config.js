@@ -10,7 +10,7 @@ const paths = {
     /* Path to source files directory */
     source: path.resolve(__dirname, './src/'),
     /* Path to built files directory */
-    output: path.resolve(__dirname, './dist/'),
+    output: path.resolve(__dirname, './dist/'), //de modificat aici calea sa nu mai stearga dist
 };
 const favicon = path.resolve(paths.source, 'images', 'favicon.ico');
 const myHeader = fs.readFileSync(paths.source + '/views/header.html');
@@ -31,7 +31,7 @@ module.exports = {
     output: {
         filename: 'js/main.bundle.js',
         path: paths.output,
-        clean: true, // strege folderul dist inainte sa genereze altul
+        clean: true, // strege folderul dist inainte sa genereze altul  //de comentat aceasta linie
     },
     plugins: [
         new HtmlWebpackPlugin({

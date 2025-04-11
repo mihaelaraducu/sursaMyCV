@@ -187,7 +187,7 @@ global.$ = global.jQuery = $;
      */
     let preloader = select('#preloader');
     if (preloader) {
-        window.addEventListener('load', () => {
+        window.addEventListener('DOMContentLoaded', () => {  // aici modific cu DOMContentLoaded sau comentez toata functia
             preloader.remove()
         });
     }
