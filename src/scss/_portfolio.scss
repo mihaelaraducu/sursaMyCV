@@ -7,7 +7,7 @@
     margin-bottom: 3rem;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    background-color: var(--background-color_1);
+    background-color: var(--work-box-portfolio);
     &:hover {
       img {
         transform: scale(1.3);
@@ -101,3 +101,18 @@
       }
     }
   }
+  [data-bs-theme='dark'] body.glightbox-open {
+    .glightbox-container,
+    .glightbox-container *,
+    .gslide,
+    .glightbox-slide {
+      background-color: #121212 !important;
+      background: #121212 !important;
+      color: #ffffff !important;
+    }
+  
+    .gclose, .gnext, .gprev {
+      filter: invert(1); // Iconițele să fie vizibile
+    }
+  }
+  

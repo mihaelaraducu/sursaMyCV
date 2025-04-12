@@ -242,7 +242,7 @@
     left: 15px;
     padding: 10px 0;
     //background-color: var(--background-color_1);
-    background-color: #fff;
+    background-color: var(--background-color);
     overflow-y: auto;
     height: fit-content;
     transition: 0.3s;
@@ -257,7 +257,7 @@
       &:before {
         visibility: hidden;
       }
-      color: var(--color_4);
+      color: var(--color_2);
     }
     padding: 10px 20px;
     font-size: 15px;
@@ -265,7 +265,7 @@
     &:focus {
       padding: 10px 20px;
       font-size: 15px;
-      color: var(--color_4);
+      color: var(--color_2);
     }
   }
   li {
@@ -274,7 +274,7 @@
         &:before {
           visibility: hidden;
         }
-        color: var(--color_4);
+        color: var(--color_2);
       }
     }
   }
@@ -282,7 +282,7 @@
     &:before {
       visibility: hidden;
     }
-    color: var(--color_4);
+    color: var(--color_2);
   }
   .getstarted {
     margin: 15px;
@@ -305,7 +305,7 @@
         min-width: 200px;
         &:hover {
           > a {
-            color: var(--color_4);
+            color: var(--color_2);
           }
         }
       }
@@ -315,12 +315,12 @@
           font-size: 12px;
         }
         &:hover {
-          color: var(--color_4);
+          color: var(--color_2);
         }
       }
       .active {
         &:hover {
-          color: var(--color_4);
+          color: var(--color_2);
         }
       }
     }
@@ -330,6 +330,27 @@
   }
 }
 
+.dark-mode-toggle i {
+  transition: color 0.3s ease;
+}
+
+.dark-mode-toggle i.bi-sun {
+  color: #fbbc04;
+}
+
+.dark-mode-toggle i.bi-moon {
+  color: #ffffff;
+}
+@media (max-width: 991px) {
+  .navbar-mobile .dark-mode-toggle {
+    display: block;
+    margin: 10px 20px;
+    text-align: left;
+    i {
+      font-size: 18px;
+    }
+  }
+}
 @media (max-width: 1366px) {
   .navbar {
     .dropdown {

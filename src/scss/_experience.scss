@@ -83,7 +83,7 @@
     }
   }
   .grey-section {
-    background: #ebebeb;
+    background: var(--grey-section);
     p.lead {
       color: var(--color_4);
     }

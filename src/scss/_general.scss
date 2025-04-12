@@ -24,6 +24,7 @@
   --color_5: #fff;
   --color_6: #cde1f8;
 
+  --background-color: #fff;
   --background-color_1: #f5f5f5;
   --background-first: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgb(18, 62, 107) 35%, rgb(10, 161, 167) 100%);
   --background-color_3: #fff;
@@ -52,6 +53,9 @@
   --dm-background: #17191c;
   --dm-text-color: rgba(256, 256, 256, 0.9);
   --dm-text-color-secondary: rgba(256, 256, 256, 0.7);
+  --grey-section: #ebebeb;
+  --git-service-box: #ebebeb;
+  --work-box-portfolio: #f5f5f5;
 }
 [data-bs-theme='dark'] {
   --color: #888888;
@@ -62,12 +66,13 @@
   --color_5: #fff;
   --vueColor: #0aa1a7;
 
+  --background-color: #121212;
   --background-color_1: #121212;
   --background-first: linear-gradient(90deg, #0d2c30 0%, #097a7e 100%);
   --background-color_3: #1e1e1e;
   --background-color_4: #333;
   --background-color_5: #1b1b1b;
-  --background-color_6: #111;
+  --background-color_6: #111111da;
  // --background-color_7: rgba(255, 255, 255, 0.1);
   --background-color_8: transparent;
   --background-color_9: rgba(255, 255, 255, 0.2);
@@ -82,6 +87,10 @@
   --dm-background: #17191c;
   --dm-text-color: rgba(256, 256, 256, 0.9);
   --dm-text-color-secondary: rgba(256, 256, 256, 0.7);
+  --grey-section: #121212;
+  --git-service-box: #1e1e1e;
+  --work-box-portfolio: #1e1e1e;
+  --dm-background: #17191c;
 }
 
 $animation-delay: .7s;
