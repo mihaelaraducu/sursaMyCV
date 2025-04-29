@@ -203,7 +203,7 @@ import { initializeParticles } from './particles.js';
                 preloader.remove();
 
                 // Inițializează particulele după eliminarea preloader-ului
-                initializeParticles();
+                //initializeParticles();
             }, 500);
         }
     }
