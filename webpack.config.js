@@ -33,6 +33,9 @@ module.exports = {
         path: paths.output,
         clean: true, // strege folderul dist inainte sa genereze altul  //de comentat aceasta linie
     },
+    resolve: {
+        extensions: ['.js', '.json'] // Adaugă extensiile pe care Webpack le poate rezolva
+    },
     plugins: [
         new HtmlWebpackPlugin({
             hash: true,

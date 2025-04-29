@@ -2,6 +2,7 @@ import $ from 'jquery';
 // create global $ and jQuery variables
 global.$ = global.jQuery = $;
 
+import { initializeParticles } from './particles.js';
 
 (function () {
     "use strict";
@@ -200,6 +201,9 @@ global.$ = global.jQuery = $;
             preloader.style.opacity = '0';
             setTimeout(() => {
                 preloader.remove();
+
+                // Inițializează particulele după eliminarea preloader-ului
+                initializeParticles();
             }, 500);
         }
     }
@@ -207,6 +211,8 @@ global.$ = global.jQuery = $;
     // Dacă pagina e încărcată din cache, tratăm și cu pageshow
     window.addEventListener('pageshow', (event) => {
         removePreloader();
+        // Reinițializează particulele dacă pagina este reîncărcată din cache
+        initializeParticles();
     });
 
     // Dacă DOM-ul se încarcă normal
