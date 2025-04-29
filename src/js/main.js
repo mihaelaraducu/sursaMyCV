@@ -56,7 +56,7 @@ global.$ = global.jQuery = $;
             }
         })
     }
-    window.addEventListener('load', navbarlinksActive)
+    document.addEventListener('DOMContentLoaded', navbarlinksActive) //am inlocuit window cu document si am adaugat un event listener pentru DOMContentLoaded in loc de load
     onscroll(document, navbarlinksActive)
 
     /**
@@ -88,10 +88,10 @@ global.$ = global.jQuery = $;
                 document.getElementById('img-fluid').src = 'images/logo3.png';
             } else {
                 selectHeader.classList.remove('header-scrolled')
-              /*  document.getElementById('img-fluid').src = 'images/logo4-color.png';*/
+                /*  document.getElementById('img-fluid').src = 'images/logo4-color.png';*/
             }
         }
-        window.addEventListener('load', headerScrolled)
+        document.addEventListener('DOMContentLoaded', headerScrolled) //am inlocuit window cu document si am adaugat un event listener pentru DOMContentLoaded in loc de load
         onscroll(document, headerScrolled)
     }
 
@@ -107,7 +107,7 @@ global.$ = global.jQuery = $;
                 backtotop.classList.remove('active')
             }
         }
-        window.addEventListener('load', toggleBacktotop)
+        document.addEventListener('DOMContentLoaded', toggleBacktotop) //am inlocuit window cu document si am adaugat un event listener pentru DOMContentLoaded in loc de load
         onscroll(document, toggleBacktotop)
     }
 
@@ -163,7 +163,7 @@ global.$ = global.jQuery = $;
      * Intro type effect
      */
 
-    setTimeout(function() {
+    setTimeout(function () {
         // const typed = select('.typed)
         const typed = select('.typed')
         if (typed) {
@@ -185,12 +185,43 @@ global.$ = global.jQuery = $;
     /**
      * Preloader
      */
-    let preloader = select('#preloader');
+
+    /*let preloader = select('#preloader');
     if (preloader) {
-        window.addEventListener('DOMContentLoaded', () => {  // aici modific cu DOMContentLoaded sau comentez toata functia
-            preloader.remove()
+        window.addEventListener('load', () => {  // 1. aici modific cu DOMContentLoaded sau comentez toata functia 2. Incarc repo-urile de pe GitHub numai atunci cand utilizatorul ajunge in acea sectiune (adica la scroll), se numeste lazy loading pe scroll
+            preloader.remove()                    // Fac aceste modificari ca atunci cand deschid pag web in safari sa nu mai apara preloader-ul
+        });
+    }*/
+
+    let preloader = document.getElementById('preloader'); //aceasta functie nu rezolva problema, dar o las aici ca sa nu pierd codul
+
+    function removePreloader() {
+        if (preloader) {
+            preloader.style.opacity = '0';
+            setTimeout(() => {
+                preloader.remove();
+            }, 500);
+        }
+    }
+
+    // Dacă pagina e încărcată din cache, tratăm și cu pageshow
+    window.addEventListener('pageshow', (event) => {
+        removePreloader();
+    });
+
+    // Dacă DOM-ul se încarcă normal
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        removePreloader();
+    } else {
+        document.addEventListener('DOMContentLoaded', () => {
+            removePreloader();
         });
     }
+
+    // Backup total la 5 secunde
+    setTimeout(() => {
+        removePreloader();
+    }, 5000);
 
 
 

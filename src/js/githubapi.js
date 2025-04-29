@@ -55,12 +55,51 @@ function showData(repos) {
     dataview.append(allRepo);
 };
 
-$(function () {
-    console.log("ready!");
-    getData('mihaelaraducu').then((myRepos) => {
-        showData(myRepos);
-        console.log('succes ', myRepos);
-    }).catch((err) => {
-        console.log('Promisiune nu s-a realizat', err);
-    })
-});
+
+function isElementInViewport(el, offset = 100) {
+    const elementTop = el.getBoundingClientRect().top;
+    const elementBottom = el.getBoundingClientRect().bottom;
+    const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+
+    return elementTop <= windowHeight - offset && elementBottom >= 0;
+}
+
+let githubSectionLoaded = false;
+
+function lazyLoadGitHubRepos() {
+    const workSection = document.getElementById('work');
+    const dataview = document.getElementById('dataview');
+
+    if (!githubSectionLoaded && workSection && isElementInViewport(workSection, 150)) {
+        githubSectionLoaded = true;
+
+        if (dataview) {
+            dataview.style.opacity = '0';
+            dataview.style.transition = 'opacity 1s ease';
+        }
+
+        getData('mihaelaraducu').then((myRepos) => {
+            showData(myRepos);
+
+            if (dataview) {
+                setTimeout(() => {
+                    dataview.style.opacity = '1';
+                }, 50);
+            }
+
+            console.log('GitHub Repos loaded successfully.');
+        }).catch((err) => {
+            console.log('Failed to load GitHub repos', err);
+        });
+
+        // Dezactivez event-ul de scroll dupa ce se incarca
+        window.removeEventListener('scroll', lazyLoadGitHubRepos);
+    }
+}
+
+// Asculta evenimentul scroll
+window.addEventListener('scroll', lazyLoadGitHubRepos);
+
+// Adaug si pe load + DOMContentLoaded ca sa declansez daca deja e vizibil
+window.addEventListener('DOMContentLoaded', lazyLoadGitHubRepos);
+window.addEventListener('load', lazyLoadGitHubRepos);
