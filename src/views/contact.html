@@ -1,6 +1,6 @@
 <!-- ======= Contact Section ======= -->
 <section id="contact" class="paralax-mf footer-paralax bg-image sect-mt4 route"
-    style="background-image: url(images/overlay-bg.png)">
+    style="background-image: url(images/overlay-bg.png)" aria-hidden="true">
     <div class="overlay-mf"></div>
     <div class="container">
         <div class="row">
@@ -21,8 +21,8 @@
                                             <div class="col-md-12 mb-3">
                                                 <div class="form-group">
                                                     <input type="text" name="name" class="form-control" id="name"
-                                                        data-attr-tr="ct.place.name" placeholder="Name" required>
-                                                    <div class="valid-feedback">The name field is valid!</div>
+                                                        data-attr-tr="ct.place.name" placeholder="Name" required aria-required="true" aria-describedby="name-feedback">
+                                                    <div class="valid-feedback" aria-live="polite">The name field is valid!</div>
                                                     <div class="invalid-feedback">Please complete the name field correctly!
                                                     </div>
                                                 </div>
@@ -30,17 +30,17 @@
                                             <div class="col-md-12 mb-3">
                                                 <div class="form-group">
                                                     <input type="email" class="form-control" name="email" id="email" data-attr-tr="ct.place.email"
-                                                        placeholder="Your Email" required>
-                                                    <div class="valid-feedback">The email field is valid!</div>
-                                                    <div class="invalid-feedback">Please complete the email field correctly!
+                                                        placeholder="Your Email" required aria-required="true" aria-describedby="email-feedback">
+                                                    <div class="valid-feedback" aria-live="polite">The email field is valid!</div>
+                                                    <div class="invalid-feedback" aria-live="polite">Please complete the email field correctly!
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-12 mb-3">
                                                 <div class="form-group">
                                                     <input type="text" class="form-control" name="subject" id="subject" data-attr-tr="ct.place.subject"
-                                                        placeholder="Subject" required>
-                                                    <div class="valid-feedback">The subject field is valid!</div>
+                                                        placeholder="Subject" required aria-required="true" aria-describedby="subject-feedback">
+                                                    <div class="valid-feedback" aria-live="polite">The subject field is valid!</div>
                                                     <div class="invalid-feedback">Please complete the subject field correctly!
                                                     </div>
                                                 </div>
@@ -49,8 +49,8 @@
                                                 <div class="form-group">
                                                     <textarea class="form-control" name="message" rows="5"
                                                         data-attr-tr="ct.place.message" placeholder="Message"
-                                                        required></textarea>
-                                                    <div class="valid-feedback">The message field is valid!</div>
+                                                        required aria-required="true" aria-describedby="message-feedback"></textarea>
+                                                    <div class="valid-feedback" aria-live="polite" >The message field is valid!</div>
                                                     <div class="invalid-feedback">Please complete the message field correctly!
                                                     </div>
                                                 </div>
@@ -61,7 +61,7 @@
                                                 <div class="sent-message">Your message has been sent. Thank you!</div>
                                             </div>
                                             <div class="col-md-12 text-center">
-                                                <button type="submit" class="button button-a button-big" data-tr="ct.send">Send
+                                                <button type="submit" class="button button-a button-big" data-tr="ct.send" aria-label="Send your message">Send
                                                     Message</button>
                                             </div>
                                         </div>
@@ -94,36 +94,36 @@
                                 <div class="socials">
                                     <ul class="list-inline list-social">
                                         <li>
-                                            <a href="#" class="social-icon social-icon-facebook" target="_blank">
+                                            <a href="https://www.facebook.com/?locale=ro_RO" class="social-icon social-icon-facebook" target="_blank" aria-label="Visit Facebook">
                                                 <i class="bi bi-facebook"></i>
                                                 <i class="bi bi-facebook"></i>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" class="social-icon social-icon-twitter" target="_blank">
+                                            <a href="https://x.com/raducumihaela1?s=21&t=d9Zz0M5FsWy2GNU3kXYGOw" class="social-icon social-icon-twitter" target="_blank" aria-label="Visit my Twitter profile">
                                                 <i class="bi bi-twitter-x"></i>
                                                 <i class="bi bi-twitter-x"></i>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" class="social-icon social-icon-linkedin" target="_blank">
+                                            <a href="https://www.linkedin.com/in/mihaela-raducu-0023b3167/" class="social-icon social-icon-linkedin" target="_blank" aria-label="Visit my LinkedIn profile">
                                                 <i class="bi bi-linkedin"></i>
                                                 <i class="bi bi-linkedin"></i>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" class="social-icon social-icon-youtube" target="_blank">
+                                            <a href="https://www.youtube.com/@raducumihaela620" class="social-icon social-icon-youtube" target="_blank" aria-label="Visit my YouTube channel">
                                                 <i class="bi bi-youtube"></i>
                                                 <i class="bi bi-youtube"></i>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="#" class="social-icon social-icon-github" target="_blank">
+                                            <a href="https://github.com/mihaelaraducu" class="social-icon social-icon-github" target="_blank" aria-label="Visit my GitHub profile">
                                                 <i class="bi bi-github"></i>
                                                 <i class="bi bi-github"></i>
                                             </a>
                                         </li>
-
+                    
                                     </ul>
                                 </div>
                             </div>
