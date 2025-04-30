@@ -12,6 +12,8 @@
       margin-bottom: 2rem;
       img {
         margin-left: 10px;
+        max-width: 100%; /* Imaginea nu depășește containerul */
+        height: auto; /* Păstrează proporțiile */
       }
     }
   }
